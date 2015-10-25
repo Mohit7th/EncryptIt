@@ -90,14 +90,14 @@ public class DbPrg {
 
 				// create table and a default root user that will grant access
 				// to create a new user
-				sql = "create table if not exists users(uname varchar( 16 ) UNIQUE, passwd varchar( 16 ))";
+				sql = "create table if not exists users1(uname varchar( 16 ) UNIQUE, passwd varchar( 16 ))";
 				stmt.executeUpdate(sql);
 
-				sql = "create table if not exists filedata(uname varchar(16) , filename varchar(100), data TEXT)";
+				sql = "create table if not exists filedata1(uname varchar(16) , filename varchar(100), data TEXT)";
 				stmt.executeUpdate(sql);
 
 				// inserting a default user for the software user
-				sql = "INSERT INTO users( uname, passwd )VALUES ('root', 'root')";
+				sql = "INSERT INTO users1( uname, passwd )VALUES ('root', 'root')";
 				stmt.executeUpdate(sql);
 			} catch (Exception e) {
 				System.out.println("Table already created!");
@@ -113,7 +113,7 @@ public class DbPrg {
 		Class.forName(jdbcDriver);
 		try (Connection con = DriverManager.getConnection(CONN_STRING,
 				USERNAME, PASSWORD); Statement st = con.createStatement();) {
-			String sql = "INSERT INTO users(uname, passwd) values('" + uname
+			String sql = "INSERT INTO users1(uname, passwd) values('" + uname
 					+ "','" + passwd + "')";
 			st.executeUpdate(sql);
 		} catch (Exception e) {
@@ -128,7 +128,7 @@ public class DbPrg {
 		Class.forName(jdbcDriver);
 		try (Connection con = DriverManager.getConnection(CONN_STRING,
 				USERNAME, PASSWORD); Statement st = con.createStatement();) {
-			String sql = "UPDATE users set passwd = '" + passwd
+			String sql = "UPDATE users1 set passwd = '" + passwd
 					+ "' WHERE uname = '" + uname + "'";
 			st.executeUpdate(sql);
 		} catch (Exception e) {
@@ -144,7 +144,7 @@ public class DbPrg {
 		Class.forName(jdbcDriver);
 		try (Connection con = DriverManager.getConnection(CONN_STRING,
 				USERNAME, PASSWORD); Statement st = con.createStatement();) {
-			String sql = "INSERT INTO filedata(uname, fileName, data) values('"
+			String sql = "INSERT INTO filedata1(uname, fileName, data) values('"
 					+ uname + "','" + filename + "','" + textData + "')";
 			st.executeUpdate(sql);
 		} catch (Exception e) {

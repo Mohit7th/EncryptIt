@@ -92,7 +92,7 @@ public class LogIn extends JFrame implements ActionListener {
 
 			// checking if user left username and password field empty
 			if (name.length() != 0 && pass.length() != 0) {
-				DbPrg db = new DbPrg(name, pass, "users", 1);
+				DbPrg db = new DbPrg(name, pass, "users1", 1);
 				try {
 					success = db.dbConnect();
 				} catch (ClassNotFoundException e) {

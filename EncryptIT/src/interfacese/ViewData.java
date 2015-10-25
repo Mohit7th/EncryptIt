@@ -105,7 +105,7 @@ public class ViewData extends JFrame implements ActionListener {
 		centerTempPan.add(jlabTopMsg, BorderLayout.NORTH);
 		add(centerTempPan, BorderLayout.CENTER);
 
-		DbPrg db = new DbPrg(UserName, password, "filedata", 4);
+		DbPrg db = new DbPrg(UserName, password, "filedata1", 4);
 		try {
 			addTableToCenter(db.dataReturned());
 		} catch (ClassNotFoundException e) {
